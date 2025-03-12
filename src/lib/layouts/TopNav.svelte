@@ -1,8 +1,25 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   
+  // 定义菜单项类型
+  type MenuItem = {
+    label: string;
+    shortcut?: string;
+    children?: (MenuItem | DividerItem)[];
+  };
+  
+  // 分隔线类型
+  type DividerItem = {
+    type: 'divider';
+  };
+  
+  // 检查对象是否是分隔线
+  function isDivider(item: MenuItem | DividerItem): item is DividerItem {
+    return 'type' in item && item.type === 'divider';
+  }
+  
   // 定义菜单结构 - 确保所有菜单都有3级深度
-  const menuItems = [
+  const menuItems: (MenuItem)[] = [
     {
       label: '文件',
       children: [
@@ -264,7 +281,7 @@
   let activeSubMenuPath: number[] = [];
   
   // 设置活动菜单
-  function setActiveMenu(index: number) {
+  function setActiveMenu(index: number): void {
     if (activeMenuIndex === index) {
       activeMenuIndex = -1;
       activeSubMenuPath = [];
@@ -275,12 +292,12 @@
   }
   
   // 设置子菜单路径
-  function setSubMenuPath(path: number[]) {
+  function setSubMenuPath(path: number[]): void {
     activeSubMenuPath = path;
   }
   
   // 点击文档其他地方关闭菜单
-  function handleClickOutside(event: MouseEvent) {
+  function handleClickOutside(event: MouseEvent): void {
     const menus = document.querySelectorAll('.menu-item, .submenu');
     let clickedOnMenu = false;
     
@@ -304,8 +321,8 @@
   });
   
   // 处理菜单项点击
-  function handleMenuItemClick(item: any) {
-    if (item.children) {
+  function handleMenuItemClick(item: MenuItem): void {
+    if (item.children && item.children.length > 0) {
       return; // 如果有子菜单，不执行操作
     }
     
@@ -334,16 +351,16 @@
             </button>
             
             <!-- 一级子菜单 (垂直下拉) -->
-            {#if activeMenuIndex === index && item.children}
+            {#if activeMenuIndex === index && item.children && item.children.length > 0}
               <div class="absolute left-0 top-full mt-1 bg-white border shadow-lg rounded-md z-50 min-w-[180px]">
                 <div class="py-1">
                   {#each item.children as childItem, childIndex}
-                    {#if childItem.type === 'divider'}
+                    {#if isDivider(childItem)}
                       <div class="border-t my-1"></div>
                     {:else}
                       <div 
                         class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 relative"
-                        on:mouseenter={() => childItem.children && setSubMenuPath([childIndex])}
+                        on:mouseenter={() => childItem.children && childItem.children.length > 0 && setSubMenuPath([childIndex])}
                         on:click|stopPropagation={() => handleMenuItemClick(childItem)}
                       >
                         <span>{childItem.label}</span>
@@ -351,22 +368,22 @@
                           {#if childItem.shortcut}
                             <span class="text-xs text-gray-500 mr-2">{childItem.shortcut}</span>
                           {/if}
-                          {#if childItem.children}
+                          {#if childItem.children && childItem.children.length > 0}
                             <span class="text-gray-400">▶</span>
                           {/if}
                         </div>
                         
                         <!-- 二级子菜单 -->
-                        {#if childItem.children && activeSubMenuPath[0] === childIndex}
+                        {#if childItem.children && childItem.children.length > 0 && activeSubMenuPath[0] === childIndex}
                           <div class="absolute left-full top-0 -mt-1 bg-white border shadow-lg rounded-md z-50 min-w-[180px] submenu">
                             <div class="py-1">
                               {#each childItem.children as subItem, subIndex}
-                                {#if subItem.type === 'divider'}
+                                {#if isDivider(subItem)}
                                   <div class="border-t my-1"></div>
                                 {:else}
                                   <div 
                                     class="flex justify-between items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 relative"
-                                    on:mouseenter={() => subItem.children && setSubMenuPath([childIndex, subIndex])}
+                                    on:mouseenter={() => subItem.children && subItem.children.length > 0 && setSubMenuPath([childIndex, subIndex])}
                                     on:click|stopPropagation={() => handleMenuItemClick(subItem)}
                                   >
                                     <span>{subItem.label}</span>
@@ -374,17 +391,17 @@
                                       {#if subItem.shortcut}
                                         <span class="text-xs text-gray-500 mr-2">{subItem.shortcut}</span>
                                       {/if}
-                                      {#if subItem.children}
+                                      {#if subItem.children && subItem.children.length > 0}
                                         <span class="text-gray-400">▶</span>
                                       {/if}
                                     </div>
                                     
                                     <!-- 三级子菜单 -->
-                                    {#if subItem.children && activeSubMenuPath[0] === childIndex && activeSubMenuPath[1] === subIndex}
+                                    {#if subItem.children && subItem.children.length > 0 && activeSubMenuPath[0] === childIndex && activeSubMenuPath[1] === subIndex}
                                       <div class="absolute left-full top-0 -mt-1 bg-white border shadow-lg rounded-md z-50 min-w-[180px] submenu">
                                         <div class="py-1">
                                           {#each subItem.children as grandChildItem}
-                                            {#if grandChildItem.type === 'divider'}
+                                            {#if isDivider(grandChildItem)}
                                               <div class="border-t my-1"></div>
                                             {:else}
                                               <div 
