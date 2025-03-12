@@ -1,8 +1,8 @@
 <script lang="ts">
-  import TopNav from '$lib/layouts/TopNav.svelte';
+  import TopNav from './TopNav.svelte';
   import SideBar from '$lib/layouts/SideBar.svelte';
   import RightSideBar from '$lib/layouts/RightSideBar.svelte';
-  import BottomBar from '$lib/layouts/BottomBar.svelte';
+  import BottomBar from './BottomBar.svelte';
 
   let bottomFrameHeight = 100;
   let isResizingVertical = false;
@@ -25,39 +25,28 @@
   }
 </script>
 
-<div class="h-screen w-full flex flex-col">
-  <header class="sticky top-0 z-10">
-    <TopNav />
-  </header>
-
-  <div class="flex flex-1">
-    <aside class="w-64">
-      <SideBar />
-    </aside>
-
-    <main class="flex-1 overflow-auto p-4 flex flex-col">
-      <div class="flex-1 overflow-auto">
-        <slot />
-      </div>
-      <div class="resizable-vertical bottom-frame bottom-frame-style">
-        <div class="resizer-vertical" on:mousedown={handleVerticalMouseDown} />
-        <div class="h-full p-4 overflow-auto">
-          Workspace Bottom Frame Content
-        </div>
-      </div>
-    </main>
-
-    <aside class="w-64">
-      <RightSideBar />
-    </aside>
-  </div>
-
-  <footer>
-    <BottomBar />
-  </footer>
+<div class="flex flex-col h-screen overflow-hidden">
+  <!-- 顶部导航栏 -->
+  <TopNav />
+  
+  <!-- 主内容区域 -->
+  <main class="flex-1 overflow-hidden">
+    <slot></slot>
+  </main>
+  
+  <!-- 底部状态栏 -->
+  <BottomBar />
 </div>
 
 <style>
+  /* 确保全屏布局 */
+  :global(html, body) {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
   main {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,11 @@
+---
+description: 开发环境设置
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+我是一名资深的跨平台前端开发人员，我使用的开发语言组件包括Tauri，vite，sveltekit，TypeScript，Bits UI,tailwindcss,daisyui。界面设计过程中，如果Bits UI有的组件我会优先选用，其次是daisyui,最后是tailwindcss。
