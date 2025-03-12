@@ -1,0 +1,58 @@
+{
+    "sourceFile": "vite.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1741792009481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741792030331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,37 +3,9 @@\n import { defineConfig } from \"vite\";\n \n // @ts-expect-error process is a nodejs global\n const host = process.env.TAURI_DEV_HOST; //adddd\n-export default defineConfig({\n-  plugins: [sveltekit(), tailwindcss()],\n-  clearScreen: false, //aad\n-  //server: {\n-   // port: 3000,\n-   // host: true\n-  //},\n-  server: {\n-    port: 3000,\n-    strictPort: true,\n-    host: host || false,\n-    hmr: host\n-      ? {\n-          protocol: \"ws\",\n-          host,\n-          port: 3000,\n-        }\n-      : undefined,\n-    watch: {\n-      // 3. tell vite to ignore watching `src-tauri`\n-      ignored: [\"**/src-tauri/**\"],\n-    },\n-  },\n-  build: {\n-    sourcemap: true\n-  }\n-});\n \n-\n export default defineConfig({\n   plugins: [sveltekit(), tailwindcss()],\n   // prevent vite from obscuring rust errors\n   clearScreen: false,\n"
+                },
+                {
+                    "date": 1741792043338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,18 +9,18 @@\n   plugins: [sveltekit(), tailwindcss()],\n   // prevent vite from obscuring rust errors\n   clearScreen: false,\n   server: {\n-    port: 1420,\n+    port: 3000,\n     // Tauri expects a fixed port, fail if that port is not available\n     strictPort: true,\n     // if the host Tauri is expecting is set, use it\n     host: host || false,\n     hmr: host\n       ? {\n           protocol: 'ws',\n           host,\n-          port: 1421,\n+          port: 3000,\n         }\n       : undefined,\n \n     watch: {\n"
+                },
+                {
+                    "date": 1741793761256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n       : undefined,\n \n     watch: {\n       // tell vite to ignore watching `src-tauri`\n-      ignored: ['**/src-tauri/**'],\n+      ignored: ['**/src-tauri/**',\"**/node_modules/**\"],\n     },\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n"
+                },
+                {
+                    "date": 1741793895031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n+    outDir: '../dist', // Output files to the `dist` folde\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                },
+                {
+                    "date": 1741795345615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n-    outDir: '../dist', // Output files to the `dist` folde\n+    outDir: '..', // Output files to the `dist` folde\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                },
+                {
+                    "date": 1741795503791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n-    outDir: '..', // Output files to the `dist` folde\n+    outDir: '../dist', // Output files to the `dist` folde\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                },
+                {
+                    "date": 1741797184157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n-    outDir: '../dist', // Output files to the `dist` folde\n+    //outDir: '../dist', // Output files to the `dist` folde\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                },
+                {
+                    "date": 1741797611480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n-    //outDir: '../dist', // Output files to the `dist` folde\n+    outDir: '../build', // Output files to the `dist` folde\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                },
+                {
+                    "date": 1741798200262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n-    outDir: '../build', // Output files to the `dist` folde\n+\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                },
+                {
+                    "date": 1741799141681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\n   build: {\n-\n+    outDir: '../build', // Output files to the `dist` folde\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n     target:\n       process.env.TAURI_ENV_PLATFORM == 'windows'\n         ? 'chrome105'\n"
+                }
+            ],
+            "date": 1741792009481,
+            "name": "Commit-0",
+            "content": "import tailwindcss from \"@tailwindcss/vite\";\nimport { sveltekit } from \"@sveltejs/kit/vite\";\nimport { defineConfig } from \"vite\";\n\n// @ts-expect-error process is a nodejs global\nconst host = process.env.TAURI_DEV_HOST; //adddd\nexport default defineConfig({\n  plugins: [sveltekit(), tailwindcss()],\n  clearScreen: false, //aad\n  //server: {\n   // port: 3000,\n   // host: true\n  //},\n  server: {\n    port: 3000,\n    strictPort: true,\n    host: host || false,\n    hmr: host\n      ? {\n          protocol: \"ws\",\n          host,\n          port: 3000,\n        }\n      : undefined,\n    watch: {\n      // 3. tell vite to ignore watching `src-tauri`\n      ignored: [\"**/src-tauri/**\"],\n    },\n  },\n  build: {\n    sourcemap: true\n  }\n});\n\n\nexport default defineConfig({\n  plugins: [sveltekit(), tailwindcss()],\n  // prevent vite from obscuring rust errors\n  clearScreen: false,\n  server: {\n    port: 1420,\n    // Tauri expects a fixed port, fail if that port is not available\n    strictPort: true,\n    // if the host Tauri is expecting is set, use it\n    host: host || false,\n    hmr: host\n      ? {\n          protocol: 'ws',\n          host,\n          port: 1421,\n        }\n      : undefined,\n\n    watch: {\n      // tell vite to ignore watching `src-tauri`\n      ignored: ['**/src-tauri/**'],\n    },\n  },\n  // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\n  envPrefix: ['VITE_', 'TAURI_ENV_*'],\n  build: {\n    // Tauri uses Chromium on Windows and WebKit on macOS and Linux\n    target:\n      process.env.TAURI_ENV_PLATFORM == 'windows'\n        ? 'chrome105'\n        : 'safari13',\n    // don't minify for debug builds\n    minify: !process.env.TAURI_ENV_DEBUG ? 'esbuild' : false,\n    // produce sourcemaps for debug builds\n    sourcemap: !!process.env.TAURI_ENV_DEBUG,\n  },\n});\n\n\n"
+        }
+    ]
+}

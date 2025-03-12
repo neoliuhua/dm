@@ -1,0 +1,102 @@
+{
+    "sourceFile": "svelte.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1741792694376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741792744894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,4 @@\n export default config;\n \n //import adapter from '@sveltejs/adapter-node';\n \n-export default {\n-\tkit: {\n-\t\tadapter: adapter()\n-\t}\n-};\n"
+                },
+                {
+                    "date": 1741792789607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-import adapter from '@sveltejs/adapter-auto';\n+//import adapter from '@sveltejs/adapter-auto';\n+import adapter from '@sveltejs/adapter-node';\n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n"
+                },
+                {
+                    "date": 1741796194276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,12 @@\n \tkit: {\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n-\t\tadapter: adapter()\n+\t\tadapter: adapter(\n+\t\t\tpages:'dist', // 自定义输出目录\n+\t\t\tassets: 'dist'\n+\t\t)\n \t}\n };\n \n export default config;\n"
+                },
+                {
+                    "date": 1741796203135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter(\n-\t\t\tpages:'dist', // 自定义输出目录\n+\t\t\tpages:'dist', \n \t\t\tassets: 'dist'\n \t\t)\n \t}\n };\n"
+                },
+                {
+                    "date": 1741796313270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n \tkit: {\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n-\t\tadapter: adapter(\n-\t\t\tpages:'dist', \n-\t\t\tassets: 'dist'\n-\t\t)\n+\t\tadapter: adapter({\n+\t\t\tpages: 'dist', // 自定义输出目录\n+\t\t\tassets: 'dist',\n+\t\t  }),\n \t}\n };\n \n export default config;\n"
+                },
+                {
+                    "date": 1741797267939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n-\t\t\tpages: 'dist', // 自定义输出目录\n-\t\t\tassets: 'dist',\n+\t\t\tpages: '../dist', // 自定义输出目录\n+\t\t\tassets: '../dist',\n \t\t  }),\n \t}\n };\n \n"
+                },
+                {
+                    "date": 1741797629545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n-\t\t\tpages: '../dist', // 自定义输出目录\n-\t\t\tassets: '../dist',\n+\t\t\tpages: '../build', // 自定义输出目录\n+\t\t\tassets: '../build',\n \t\t  }),\n \t}\n };\n \n"
+                },
+                {
+                    "date": 1741797975936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,9 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n-\t\t\tpages: '../build', // 自定义输出目录\n-\t\t\tassets: '../build',\n+\t\n \t\t  }),\n \t}\n };\n \n"
+                },
+                {
+                    "date": 1741798165217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,10 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n-\t\n+\t\t\tpages: '../build', // 自定义输出目录\n+\t\t\tassets: '../build',\n \t\t  }),\n \t}\n };\n \n"
+                },
+                {
+                    "date": 1741798231340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,5 @@\n \t\t  }),\n \t}\n };\n \n-export default config;\n-\n-//import adapter from '@sveltejs/adapter-node';\n-\n+export default config;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741798248388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-//import adapter from '@sveltejs/adapter-auto';\n-import adapter from '@sveltejs/adapter-node';\n+import adapter from '@sveltejs/adapter-auto';\n+//import adapter from '@sveltejs/adapter-node';\n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n"
+                },
+                {
+                    "date": 1741798413712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import adapter from '@sveltejs/adapter-auto';\n-//import adapter from '@sveltejs/adapter-node';\n+//import adapter from '@sveltejs/adapter-auto';\n+import adapter from '@sveltejs/adapter-node';\n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n"
+                },
+                {
+                    "date": 1741798569309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n-\t\t\tpages: '../build', // 自定义输出目录\n-\t\t\tassets: '../build',\n+\t\t\tpages: '../output', // 自定义输出目录\n+\t\t\tassets: '../output',\n \t\t  }),\n \t}\n };\n \n"
+                },
+                {
+                    "date": 1741798798658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,18 +5,16 @@\n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n \t// Consult https://svelte.dev/docs/kit/integrations\n \t// for more information about preprocessors\n-\tpreprocess: vitePreprocess(),\n-\n-\tkit: {\n-\t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n-\t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n-\t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n-\t\tadapter: adapter({\n-\t\t\tpages: '../output', // 自定义输出目录\n-\t\t\tassets: '../output',\n+\texport default {\n+\t\tkit: {\n+\t\t  adapter: adapter({\n+\t\t\tpages: 'build', // 输出目录\n+\t\t\tassets: 'build',\n \t\t  }),\n-\t}\n+\t\t},\n+\t\tpreprocess: vitePreprocess(),\n+\t  };\n };\n \n export default config;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741798906806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,19 @@\n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n \t// Consult https://svelte.dev/docs/kit/integrations\n \t// for more information about preprocessors\n-\texport default {\n-\t\tkit: {\n-\t\t  adapter: adapter({\n-\t\t\tpages: 'build', // 输出目录\n-\t\t\tassets: 'build',\n+\t\n+\n+\tkit: {\n+\t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n+\t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n+\t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n+\t\tadapter: adapter({\n+\t\t\tpages: '../output', // 自定义输出目录\n+\t\t\tassets: '../output',\n \t\t  }),\n-\t\t},\n-\t\tpreprocess: vitePreprocess(),\n-\t  };\n+\t},\n+\tpreprocess: vitePreprocess(),\n };\n \n export default config;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741798924263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n-\t\t\tpages: '../output', // 自定义输出目录\n-\t\t\tassets: '../output',\n+\t\t\tpages: 'build', // 自定义输出目录\n+\t\t\tassets: 'build',\n \t\t  }),\n \t},\n \tpreprocess: vitePreprocess(),\n };\n"
+                },
+                {
+                    "date": 1741799278446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n //import adapter from '@sveltejs/adapter-auto';\n-import adapter from '@sveltejs/adapter-node';\n+//import adapter from '@sveltejs/adapter-node';\n+import adapter from '@sveltejs/adapter-static';\n+\n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n"
+                },
+                {
+                    "date": 1741799628266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n \t\t\tpages: 'build', // 自定义输出目录\n \t\t\tassets: 'build',\n+\t\t\tfallback: '200.html' // may differ from host to host\n \t\t  }),\n \t},\n \tpreprocess: vitePreprocess(),\n };\n"
+                },
+                {
+                    "date": 1741800086599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,11 @@\n \t\t\tpages: 'build', // 自定义输出目录\n \t\t\tassets: 'build',\n \t\t\tfallback: '200.html' // may differ from host to host\n \t\t  }),\n+\t\t  paths: {\n+\t\t\tbase: '/',\n+\t\t  },\n \t},\n \tpreprocess: vitePreprocess(),\n };\n \n"
+                },
+                {
+                    "date": 1741800252183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \t\t\tassets: 'build',\n \t\t\tfallback: '200.html' // may differ from host to host\n \t\t  }),\n \t\t  paths: {\n-\t\t\tbase: '/',\n+\t\t\tbase: '',\n \t\t  },\n \t},\n \tpreprocess: vitePreprocess(),\n };\n"
+                },
+                {
+                    "date": 1741800401809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n \t\t\tpages: 'build', // 自定义输出目录\n \t\t\tassets: 'build',\n-\t\t\tfallback: '200.html' // may differ from host to host\n+\t\t\tfallback: 'index.html' // may differ from host to host\n \t\t  }),\n \t\t  paths: {\n \t\t\tbase: '',\n \t\t  },\n"
+                }
+            ],
+            "date": 1741792694376,
+            "name": "Commit-0",
+            "content": "import adapter from '@sveltejs/adapter-auto';\nimport { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n\n/** @type {import('@sveltejs/kit').Config} */\nconst config = {\n\t// Consult https://svelte.dev/docs/kit/integrations\n\t// for more information about preprocessors\n\tpreprocess: vitePreprocess(),\n\n\tkit: {\n\t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n\t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n\t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n\t\tadapter: adapter()\n\t}\n};\n\nexport default config;\n\n//import adapter from '@sveltejs/adapter-node';\n\nexport default {\n\tkit: {\n\t\tadapter: adapter()\n\t}\n};\n"
+        }
+    ]
+}

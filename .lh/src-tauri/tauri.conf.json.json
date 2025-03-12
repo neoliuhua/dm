@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src-tauri/tauri.conf.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1741793047628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741793434950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"..\",\n+    \"frontendDist\": \"../dist\", // Updated to point to the isolated web assets folder\n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741793532408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"../dist\", // Updated to point to the isolated web assets folder\n+    \"frontendDist\": \"..\", // Updated to point to the isolated web assets folder\n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741793968062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"..\", // Updated to point to the isolated web assets folder\n+    \"frontendDist\": \"../dist\", // Updated to point to the isolated web assets folder\n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741795356274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"../dist\", // Updated to point to the isolated web assets folder\n+    \"frontendDist\": \"..\", \n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741795509159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"..\", \n+    \"frontendDist\": \"../dist\", \n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741797192345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"../dist\", \n+    //\"frontendDist\": \"../dist\", \n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741797346950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    //\"frontendDist\": \"../dist\", \n+\n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741797597182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-\n+    \"frontendDist\": \"../build\", \n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741798184754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-    \"frontendDist\": \"../build\", \n+\n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                },
+                {
+                    "date": 1741799059561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   \"productName\": \"my-app\",\n   \"version\": \"0.1.0\",\n   \"identifier\": \"com.tauri.dev1\",\n   \"build\": {\n-\n+    \"frontendDist\": \"../build\", \n     \"devUrl\": \"http://localhost:3000\",\n     \"beforeDevCommand\": \"npm run dev\",\n     \"beforeBuildCommand\": \"npm run build\"\n   },\n"
+                }
+            ],
+            "date": 1741793047628,
+            "name": "Commit-0",
+            "content": "{\n  \"$schema\": \"../node_modules/@tauri-apps/cli/config.schema.json\",\n  \"productName\": \"my-app\",\n  \"version\": \"0.1.0\",\n  \"identifier\": \"com.tauri.dev1\",\n  \"build\": {\n    \"frontendDist\": \"..\",\n    \"devUrl\": \"http://localhost:3000\",\n    \"beforeDevCommand\": \"npm run dev\",\n    \"beforeBuildCommand\": \"npm run build\"\n  },\n  \"app\": {\n    \"windows\": [\n      {\n        \"title\": \"my-app\",\n        \"width\": 800,\n        \"height\": 600,\n        \"resizable\": true,\n        \"fullscreen\": false\n      }\n    ],\n    \"security\": {\n      \"csp\": null\n    }\n  },\n  \"bundle\": {\n    \"active\": true,\n    \"targets\": \"all\",\n    \"icon\": [\n      \"icons/32x32.png\",\n      \"icons/128x128.png\",\n      \"icons/128x128@2x.png\",\n      \"icons/icon.icns\",\n      \"icons/icon.ico\"\n    ]\n  }\n}\n"
+        }
+    ]
+}
