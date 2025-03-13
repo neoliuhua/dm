@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/routes/+layout.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1741842173451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741842179303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n // so we will use adapter-static to prerender the app (SSG)\r\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n export const prerender = true;\r\n export const ssr = false;\r\n-trailingSlash: 'always'\r\n+trailingSlash: 'always';\r\n"
+                },
+                {
+                    "date": 1741842203232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,6 @@\n // so we will use adapter-static to prerender the app (SSG)\r\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n export const prerender = true;\r\n export const ssr = false;\r\n+//for asset not found error\r\n trailingSlash: 'always';\r\n"
+                },
+                {
+                    "date": 1741842467721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,5 @@\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n export const prerender = true;\r\n export const ssr = false;\r\n //for asset not found error\r\n-trailingSlash: 'always';\r\n+//trailingSlash: 'always';\r\n"
+                }
+            ],
+            "date": 1741842173451,
+            "name": "Commit-0",
+            "content": "// Tauri doesn't have a Node.js server to do proper SSR\r\n// so we will use adapter-static to prerender the app (SSG)\r\n// See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\nexport const prerender = true;\r\nexport const ssr = false;\r\ntrailingSlash: 'always'\r\n"
+        }
+    ]
+}

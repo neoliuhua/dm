@@ -1,30 +1,30 @@
-// Tauri doesn't have a Node.js server to do proper SSR
-// so we will use adapter-static to prerender the app (SSG)
-// See: https://v2.tauri.app/start/frontend/sveltekit/ for more info
-//import adapter from "@sveltejs/adapter-static";
-// see: https://github.com/gornostay25/svelte-adapter-bun for more info
-import adapter from "svelte-adapter-bun";
-import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+//import adapter from '@sveltejs/adapter-auto';
+//auto only support some specific enviroments
+// //import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
+
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: vitePreprocess(),
-  kit: {
-    adapter: adapter({
-      out: "build",
-      assets: true,
-     // envPrefix: "MY_CUSTOM_",
-      development: true,
-      // precompress: true,
-      precompress: {
-        brotli: true,
-        gzip: true,
-        files: ["htm", "html"],
-      },
-      dynamic_origin: true,
-      xff_depth: 1,
-    }),
-  },
+	
+	kit: {
+		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
+		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
+		adapter: adapter({
+			pages: 'build', // 自定义输出目录
+			assets: 'build',
+			//fallback: 'index.html' // may differ from host to host
+		  }),
+		  //自定义输出路径
+		  paths: {
+			base: '',
+		  },
+	},
+		// Consult https://svelte.dev/docs/kit/integrations
+	// for more information about preprocessors
+	preprocess: vitePreprocess(),
 };
 
 export default config;
