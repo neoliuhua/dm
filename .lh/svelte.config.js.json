@@ -1,0 +1,50 @@
+{
+    "sourceFile": "svelte.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1741829737947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741830151044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n // Tauri doesn't have a Node.js server to do proper SSR\r\n // so we will use adapter-static to prerender the app (SSG)\r\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n-import adapter from \"@sveltejs/adapter-static\";\r\n+//import adapter from \"@sveltejs/adapter-static\";\r\n+import adapter from \"svelte-adapter-bun\";\r\n import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n \r\n /** @type {import('@sveltejs/kit').Config} */\r\n const config = {\r\n"
+                },
+                {
+                    "date": 1741830311531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,18 +2,27 @@\n // so we will use adapter-static to prerender the app (SSG)\r\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n //import adapter from \"@sveltejs/adapter-static\";\r\n import adapter from \"svelte-adapter-bun\";\r\n-import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n+//import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n \r\n /** @type {import('@sveltejs/kit').Config} */\r\n const config = {\r\n   preprocess: vitePreprocess(),\r\n   kit: {\r\n     adapter: adapter({\r\n-      pages: 'build',\r\n-      assets: 'build',\r\n-      fallback: null,\r\n+      out: \"build\",\r\n+      assets: true,\r\n+      envPrefix: \"MY_CUSTOM_\",\r\n+      development: true,\r\n+      // precompress: true,\r\n+      precompress: {\r\n+        brotli: true,\r\n+        gzip: true,\r\n+        files: [\"htm\", \"html\"],\r\n+      },\r\n+      dynamic_origin: true,\r\n+      xff_depth: 1,\r\n     }),\r\n   },\r\n };\r\n \r\n@@ -21,4 +30,7 @@\n \r\n \r\n \r\n \r\n+\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1741830319968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n //import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n \r\n /** @type {import('@sveltejs/kit').Config} */\r\n const config = {\r\n-  preprocess: vitePreprocess(),\r\n+  //preprocess: vitePreprocess(),\r\n   kit: {\r\n     adapter: adapter({\r\n       out: \"build\",\r\n       assets: true,\r\n"
+                },
+                {
+                    "date": 1741830370435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   kit: {\r\n     adapter: adapter({\r\n       out: \"build\",\r\n       assets: true,\r\n-      envPrefix: \"MY_CUSTOM_\",\r\n+     // envPrefix: \"MY_CUSTOM_\",\r\n       development: true,\r\n       // precompress: true,\r\n       precompress: {\r\n         brotli: true,\r\n"
+                },
+                {
+                    "date": 1741830398747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n // Tauri doesn't have a Node.js server to do proper SSR\r\n // so we will use adapter-static to prerender the app (SSG)\r\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n //import adapter from \"@sveltejs/adapter-static\";\r\n+// see: https://github.com/gornostay25/svelte-adapter-bun for more info\r\n import adapter from \"svelte-adapter-bun\";\r\n //import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n \r\n /** @type {import('@sveltejs/kit').Config} */\r\n"
+                },
+                {
+                    "date": 1741830552175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,12 +26,5 @@\n     }),\r\n   },\r\n };\r\n \r\n-export default config;\r\n-\r\n-\r\n-\r\n-\r\n-\r\n-\r\n-\r\n+export default config;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741830678906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n //import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n \r\n /** @type {import('@sveltejs/kit').Config} */\r\n const config = {\r\n-  //preprocess: vitePreprocess(),\r\n+  preprocess: vitePreprocess(),\r\n   kit: {\r\n     adapter: adapter({\r\n       out: \"build\",\r\n       assets: true,\r\n"
+                },
+                {
+                    "date": 1741830763890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n // See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\n //import adapter from \"@sveltejs/adapter-static\";\r\n // see: https://github.com/gornostay25/svelte-adapter-bun for more info\r\n import adapter from \"svelte-adapter-bun\";\r\n-//import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n+import { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n \r\n /** @type {import('@sveltejs/kit').Config} */\r\n const config = {\r\n   preprocess: vitePreprocess(),\r\n"
+                }
+            ],
+            "date": 1741829737947,
+            "name": "Commit-0",
+            "content": "// Tauri doesn't have a Node.js server to do proper SSR\r\n// so we will use adapter-static to prerender the app (SSG)\r\n// See: https://v2.tauri.app/start/frontend/sveltekit/ for more info\r\nimport adapter from \"@sveltejs/adapter-static\";\r\nimport { vitePreprocess } from \"@sveltejs/vite-plugin-svelte\";\r\n\r\n/** @type {import('@sveltejs/kit').Config} */\r\nconst config = {\r\n  preprocess: vitePreprocess(),\r\n  kit: {\r\n    adapter: adapter({\r\n      pages: 'build',\r\n      assets: 'build',\r\n      fallback: null,\r\n    }),\r\n  },\r\n};\r\n\r\nexport default config;\r\n\r\n\r\n\r\n\r\n"
+        }
+    ]
+}
