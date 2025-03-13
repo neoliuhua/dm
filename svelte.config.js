@@ -15,7 +15,7 @@ const config = {
 		adapter: adapter({
 			pages: 'build', // 自定义输出目录
 			assets: 'build',
-			fallback: 'index.html' // may differ from host to host
+			//fallback: 'index.html' // may differ from host to host
 		  }),
 		  //自定义输出路径
 		  paths: {
