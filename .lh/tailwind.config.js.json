@@ -1,0 +1,18 @@
+{
+    "sourceFile": "tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741849194432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741849194432,
+            "name": "Commit-0",
+            "content": "module.exports = {\r\n    content: ['./src/**/*.{html,js,svelte,ts}'],\r\n    theme: {\r\n      extend: {},\r\n    },\r\n    plugins: [\r\n      require('@tailwindcss/typography'),  // 排版插件\r\n      require('daisyui')  // DaisyUI 组件库 [1](@ref)(https://blog.csdn.net/gitblog_00658/article/details/141208313)\r\n    ],\r\n    daisyui: {\r\n      themes: [\"light\", \"dark\"],  // 启用多主题模式\r\n    }\r\n  }\r\n  "
+        }
+    ]
+}

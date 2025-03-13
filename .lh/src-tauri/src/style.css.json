@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src-tauri/src/style.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1741849267499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741849412959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n @import \"tailwindcss/base\";\r\n @import \"tailwindcss/components\";\r\n @import \"tailwindcss/utilities\";\r\n-@import \"daisyui/dist/full.css\";  // 加载 DaisyUI 完整样式 ?[2](@ref)\r\n-(https://blog.csdn.net/gitblog_00039/article/details/139018190)\r\n+@import \"daisyui/dist/full.css\";  \r\n @plugin \"daisyui\";\r\n"
+                },
+                {
+                    "date": 1741849424453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n @import \"tailwindcss/base\";\r\n @import \"tailwindcss/components\";\r\n @import \"tailwindcss/utilities\";\r\n-@import \"daisyui/dist/full.css\";  \r\n @plugin \"daisyui\";\r\n"
+                }
+            ],
+            "date": 1741849267499,
+            "name": "Commit-0",
+            "content": "@import \"tailwindcss/base\";\r\n@import \"tailwindcss/components\";\r\n@import \"tailwindcss/utilities\";\r\n@import \"daisyui/dist/full.css\";  // 加载 DaisyUI 完整样式 ?[2](@ref)\r\n(https://blog.csdn.net/gitblog_00039/article/details/139018190)\r\n@plugin \"daisyui\";\r\n"
+        }
+    ]
+}

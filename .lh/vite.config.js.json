@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1741838707861,
@@ -20,6 +20,54 @@
                 {
                     "date": 1741838940587,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n   plugins: [sveltekit()],\r\n   build: {\r\n-    outDir: '../build', // Output files to the `build` folder\r\n+   // outDir: '../build', // Output files to the `build` folder\r\n   },\r\n   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n   //\r\n   // 1. prevent vite from obscuring rust errors\r\n"
+                },
+                {
+                    "date": 1741849091354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const host = process.env.TAURI_DEV_HOST;\r\n \r\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n-  plugins: [sveltekit()],\r\n+  plugins: [tailwindcss(),sveltekit()],\r\n   build: {\r\n    // outDir: '../build', // Output files to the `build` folder\r\n   },\r\n   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n"
+                },
+                {
+                    "date": 1741849108944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import tailwindcss from \"@tailwindcss/vite\";\r\n import { defineConfig } from \"vite\";\r\n import { sveltekit } from \"@sveltejs/kit/vite\";\r\n \r\n // @ts-expect-error process is a nodejs global\r\n"
+                },
+                {
+                    "date": 1741849135047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,16 @@\n \r\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n   plugins: [tailwindcss(),sveltekit()],\r\n+  optimizeDeps: {\r\n+    include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n+  }\r\n+————————————————\r\n+\r\n+                            转载请注明原文详细链接\r\n+                        \r\n+原文链接：https://blog.csdn.net/qq_34640315/article/details/146230735\r\n   build: {\r\n    // outDir: '../build', // Output files to the `build` folder\r\n   },\r\n   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n"
+                },
+                {
+                    "date": 1741849142105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,8 @@\n   plugins: [tailwindcss(),sveltekit()],\r\n   optimizeDeps: {\r\n     include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n   }\r\n-————————————————\r\n-\r\n-                            转载请注明原文详细链接\r\n-                        \r\n-原文链接：https://blog.csdn.net/qq_34640315/article/details/146230735\r\n   build: {\r\n    // outDir: '../build', // Output files to the `build` folder\r\n   },\r\n   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n"
+                },
+                {
+                    "date": 1741849366555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export default defineConfig(async () => ({\r\n   plugins: [tailwindcss(),sveltekit()],\r\n   optimizeDeps: {\r\n     include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n-  }\r\n+  },\r\n   build: {\r\n    // outDir: '../build', // Output files to the `build` folder\r\n   },\r\n   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n"
+                },
+                {
+                    "date": 1741849690079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,12 @@\n const host = process.env.TAURI_DEV_HOST;\r\n \r\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n-  plugins: [tailwindcss(),sveltekit()],\r\n+  plugins: [\r\n+    tailwindcss(), \r\n+    sveltekit()\r\n+  ],\r\n   optimizeDeps: {\r\n     include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n   },\r\n   build: {\r\n"
+                },
+                {
+                    "date": 1741849868979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,9 @@\n const host = process.env.TAURI_DEV_HOST;\r\n \r\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n-  plugins: [\r\n-    tailwindcss(), \r\n-    sveltekit()\r\n-  ],\r\n+  plugins: [sveltekit(),  tailwindcss()],\r\n   optimizeDeps: {\r\n     include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n   },\r\n   build: {\r\n"
+                },
+                {
+                    "date": 1741849907521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const host = process.env.TAURI_DEV_HOST;\r\n \r\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n-  plugins: [sveltekit(),  tailwindcss()],\r\n+  plugins: [sveltekit(),tailwindcss()],\r\n   optimizeDeps: {\r\n     include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n   },\r\n   build: {\r\n"
+                },
+                {
+                    "date": 1741850174175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,9 @@\n \r\n // https://vitejs.dev/config/\r\n export default defineConfig(async () => ({\r\n   plugins: [sveltekit(),tailwindcss()],\r\n-  optimizeDeps: {\r\n-    include: [\"@tailwindcss/typography\"]  // 优化排版插件加载 [39](@ref)(https://blog.csdn.net/wade3po/article/details/134315271)\r\n-  },\r\n+\r\n   build: {\r\n    // outDir: '../build', // Output files to the `build` folder\r\n   },\r\n   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n"
+                },
+                {
+                    "date": 1741850541984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,36 +1,47 @@\n import tailwindcss from \"@tailwindcss/vite\";\r\n+import { sveltekit } from \"@sveltejs/kit/vite\";\r\n import { defineConfig } from \"vite\";\r\n-import { sveltekit } from \"@sveltejs/kit/vite\";\r\n \r\n // @ts-expect-error process is a nodejs global\r\n-const host = process.env.TAURI_DEV_HOST;\r\n+const host = process.env.TAURI_DEV_HOST; //adddd\r\n \r\n-// https://vitejs.dev/config/\r\n-export default defineConfig(async () => ({\r\n-  plugins: [sveltekit(),tailwindcss()],\r\n-\r\n-  build: {\r\n-   // outDir: '../build', // Output files to the `build` folder\r\n-  },\r\n-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`\r\n-  //\r\n-  // 1. prevent vite from obscuring rust errors\r\n+export default defineConfig({\r\n+  plugins: [sveltekit(), tailwindcss()],\r\n+  // prevent vite from obscuring rust errors\r\n   clearScreen: false,\r\n-  // 2. tauri expects a fixed port, fail if that port is not available\r\n   server: {\r\n-    port: 1420,\r\n+    port: 3000,\r\n+    // Tauri expects a fixed port, fail if that port is not available\r\n     strictPort: true,\r\n+    // if the host Tauri is expecting is set, use it\r\n     host: host || false,\r\n     hmr: host\r\n       ? {\r\n-          protocol: \"ws\",\r\n+          protocol: 'ws',\r\n           host,\r\n-          port: 1421,\r\n+          port: 3000,\r\n         }\r\n       : undefined,\r\n+\r\n     watch: {\r\n-      // 3. tell vite to ignore watching `src-tauri`\r\n-      ignored: [\"**/src-tauri/**\"],\r\n+      // tell vite to ignore watching `src-tauri`\r\n+      ignored: ['**/src-tauri/**',\"**/node_modules/**\"],\r\n     },\r\n   },\r\n-}));\r\n+  // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\r\n+  envPrefix: ['VITE_', 'TAURI_ENV_*'],\r\n+  build: {\r\n+    outDir: '../build', // Output files to the `dist` folde\r\n+    // Tauri uses Chromium on Windows and WebKit on macOS and Linux\r\n+    target:\r\n+      process.env.TAURI_ENV_PLATFORM == 'windows'\r\n+        ? 'chrome105'\r\n+        : 'safari13',\r\n+    // don't minify for debug builds\r\n+    minify: !process.env.TAURI_ENV_DEBUG ? 'esbuild' : false,\r\n+    // produce sourcemaps for debug builds\r\n+    sourcemap: !!process.env.TAURI_ENV_DEBUG,\r\n+  },\r\n+});\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1741850550580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,7 +41,5 @@\n     minify: !process.env.TAURI_ENV_DEBUG ? 'esbuild' : false,\r\n     // produce sourcemaps for debug builds\r\n     sourcemap: !!process.env.TAURI_ENV_DEBUG,\r\n   },\r\n-});\r\n-\r\n-\r\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741850959431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\r\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\r\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\r\n   build: {\r\n-    outDir: '../build', // Output files to the `dist` folde\r\n+    //outDir: '../build', // Output files to the `dist` folde\r\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\r\n     target:\r\n       process.env.TAURI_ENV_PLATFORM == 'windows'\r\n         ? 'chrome105'\r\n"
                 }
             ],
             "date": 1741838707861,

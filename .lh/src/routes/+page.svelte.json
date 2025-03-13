@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/routes/+page.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1741849314447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741849547506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <script lang=\"ts\">\r\n   import { invoke } from \"@tauri-apps/api/core\";\r\n   import \"../style.css\";\r\n-\r\n-\r\n+  \r\n   let name = $state(\"\");\r\n   let greetMsg = $state(\"\");\r\n \r\n   async function greet(event: Event) {\r\n"
+                },
+                {
+                    "date": 1741850625182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <script lang=\"ts\">\r\n   import { invoke } from \"@tauri-apps/api/core\";\r\n-  import \"../style.css\";\r\n-  \r\n+  //import \"../style.css\";\r\n+\r\n   let name = $state(\"\");\r\n   let greetMsg = $state(\"\");\r\n \r\n   async function greet(event: Event) {\r\n"
+                },
+                {
+                    "date": 1741850728490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <script lang=\"ts\">\r\n   import { invoke } from \"@tauri-apps/api/core\";\r\n-  //import \"../style.css\";\r\n+  import \"../style.css\";\r\n \r\n   let name = $state(\"\");\r\n   let greetMsg = $state(\"\");\r\n \r\n"
+                }
+            ],
+            "date": 1741849314447,
+            "name": "Commit-0",
+            "content": "<script lang=\"ts\">\r\n  import { invoke } from \"@tauri-apps/api/core\";\r\n  import \"../style.css\";\r\n\r\n\r\n  let name = $state(\"\");\r\n  let greetMsg = $state(\"\");\r\n\r\n  async function greet(event: Event) {\r\n    event.preventDefault();\r\n    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/\r\n    greetMsg = await invoke(\"greet\", { name });\r\n  }\r\n</script>\r\n\r\n<main class=\"container\">\r\n  <h1>Welcome to Tauri + Svelte</h1>\r\n\r\n  <div class=\"row\">\r\n    <a href=\"https://vitejs.dev\" target=\"_blank\">\r\n      <img src=\"/vite.svg\" class=\"logo vite\" alt=\"Vite Logo\" />\r\n    </a>\r\n    <a href=\"https://tauri.app\" target=\"_blank\">\r\n      <img src=\"/tauri.svg\" class=\"logo tauri\" alt=\"Tauri Logo\" />\r\n    </a>\r\n    <a href=\"https://kit.svelte.dev\" target=\"_blank\">\r\n      <img src=\"/svelte.svg\" class=\"logo svelte-kit\" alt=\"SvelteKit Logo\" />\r\n    </a>\r\n  </div>\r\n  <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>\r\n\r\n  <form class=\"row\" onsubmit={greet}>\r\n    <input id=\"greet-input\" placeholder=\"Enter a name...\" bind:value={name} />\r\n    <button type=\"submit\">Greet</button>\r\n  </form>\r\n  <p>{greetMsg}</p>\r\n</main>\r\n\r\n<style>\r\n.logo.vite:hover {\r\n  filter: drop-shadow(0 0 2em #747bff);\r\n}\r\n\r\n.logo.svelte-kit:hover {\r\n  filter: drop-shadow(0 0 2em #ff3e00);\r\n}\r\n\r\n:root {\r\n  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;\r\n  font-size: 16px;\r\n  line-height: 24px;\r\n  font-weight: 400;\r\n\r\n  color: #0f0f0f;\r\n  background-color: #f6f6f6;\r\n\r\n  font-synthesis: none;\r\n  text-rendering: optimizeLegibility;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  -webkit-text-size-adjust: 100%;\r\n}\r\n\r\n.container {\r\n  margin: 0;\r\n  padding-top: 10vh;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  text-align: center;\r\n}\r\n\r\n.logo {\r\n  height: 6em;\r\n  padding: 1.5em;\r\n  will-change: filter;\r\n  transition: 0.75s;\r\n}\r\n\r\n.logo.tauri:hover {\r\n  filter: drop-shadow(0 0 2em #24c8db);\r\n}\r\n\r\n.row {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\na {\r\n  font-weight: 500;\r\n  color: #646cff;\r\n  text-decoration: inherit;\r\n}\r\n\r\na:hover {\r\n  color: #535bf2;\r\n}\r\n\r\nh1 {\r\n  text-align: center;\r\n}\r\n\r\ninput,\r\nbutton {\r\n  border-radius: 8px;\r\n  border: 1px solid transparent;\r\n  padding: 0.6em 1.2em;\r\n  font-size: 1em;\r\n  font-weight: 500;\r\n  font-family: inherit;\r\n  color: #0f0f0f;\r\n  background-color: #ffffff;\r\n  transition: border-color 0.25s;\r\n  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\nbutton {\r\n  cursor: pointer;\r\n}\r\n\r\nbutton:hover {\r\n  border-color: #396cd8;\r\n}\r\nbutton:active {\r\n  border-color: #396cd8;\r\n  background-color: #e8e8e8;\r\n}\r\n\r\ninput,\r\nbutton {\r\n  outline: none;\r\n}\r\n\r\n#greet-input {\r\n  margin-right: 5px;\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n  :root {\r\n    color: #f6f6f6;\r\n    background-color: #2f2f2f;\r\n  }\r\n\r\n  a:hover {\r\n    color: #24c8db;\r\n  }\r\n\r\n  input,\r\n  button {\r\n    color: #ffffff;\r\n    background-color: #0f0f0f98;\r\n  }\r\n  button:active {\r\n    background-color: #0f0f0f69;\r\n  }\r\n}\r\n\r\n</style>\r\n"
+        }
+    ]
+}
