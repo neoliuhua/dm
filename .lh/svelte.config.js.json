@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1741792694376,
@@ -92,6 +92,22 @@
                 {
                     "date": 1741800401809,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n \t\tadapter: adapter({\n \t\t\tpages: 'build', // 自定义输出目录\n \t\t\tassets: 'build',\n-\t\t\tfallback: '200.html' // may differ from host to host\n+\t\t\tfallback: 'index.html' // may differ from host to host\n \t\t  }),\n \t\t  paths: {\n \t\t\tbase: '',\n \t\t  },\n"
+                },
+                {
+                    "date": 1741818465052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n-\t// Consult https://svelte.dev/docs/kit/integrations\n-\t// for more information about preprocessors\n+\n \t\n \n \tkit: {\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n@@ -22,8 +21,10 @@\n \t\t  paths: {\n \t\t\tbase: '',\n \t\t  },\n \t},\n+\t\t// Consult https://svelte.dev/docs/kit/integrations\n+\t// for more information about preprocessors\n \tpreprocess: vitePreprocess(),\n };\n \n export default config;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1741818471545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,9 @@\n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n /** @type {import('@sveltejs/kit').Config} */\n const config = {\n-\n \t\n-\n \tkit: {\n \t\t// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.\n \t\t// If your environment is not supported, or you settled on a specific environment, switch out the adapter.\n \t\t// See https://svelte.dev/docs/kit/adapters for more information about adapters.\n"
+                },
+                {
+                    "date": 1741818808402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n \t\t\tpages: 'build', // 自定义输出目录\n \t\t\tassets: 'build',\n \t\t\tfallback: 'index.html' // may differ from host to host\n \t\t  }),\n+\t\t  //自定义输出路径\n \t\t  paths: {\n \t\t\tbase: '',\n \t\t  },\n \t},\n"
+                },
+                {
+                    "date": 1741826798137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n //import adapter from '@sveltejs/adapter-auto';\n-//import adapter from '@sveltejs/adapter-node';\n+//auto only support some specific enviroments\n+// //import adapter from '@sveltejs/adapter-node';\n import adapter from '@sveltejs/adapter-static';\n \n import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';\n \n"
                 }
             ],
             "date": 1741792694376,
