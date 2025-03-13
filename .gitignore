@@ -2,7 +2,7 @@
 node_modules
 /build
 /.svelte-kit
-/src-tauri
+/src-tauri/target
 /package
 .env
 .env.*
