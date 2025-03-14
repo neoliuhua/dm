@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/lib/components/ResizablePanel.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741877390915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741877390915,
+            "name": "Commit-0",
+            "content": "<script lang=\"ts\">\r\n  export let width = '250px';\r\n  export let minWidth = '100px';\r\n  export let maxWidth = '500px';\r\n  export let side: 'left' | 'right' = 'left';\r\n\r\n  let isResizing = false;\r\n  let startX: number;\r\n  let startWidth: number;\r\n  let panel: HTMLElement;\r\n\r\n  function startResize(e: MouseEvent) {\r\n    isResizing = true;\r\n    startX = e.pageX;\r\n    startWidth = panel.offsetWidth;\r\n  }\r\n\r\n  function handleResize(e: MouseEvent) {\r\n    if (!isResizing) return;\r\n    \r\n    const diff = side === 'left' \r\n      ? e.pageX - startX \r\n      : startX - e.pageX;\r\n    \r\n    const newWidth = Math.min(\r\n      Math.max(startWidth + diff, parseInt(minWidth)),\r\n      parseInt(maxWidth)\r\n    );\r\n    \r\n    width = `${newWidth}px`;\r\n  }\r\n\r\n  function stopResize() {\r\n    isResizing = false;\r\n  }\r\n</script>\r\n\r\n<svelte:window \r\n  on:mousemove={handleResize} \r\n  on:mouseup={stopResize}\r\n/>\r\n\r\n<div \r\n  bind:this={panel}\r\n  class=\"relative\"\r\n  style=\"width: {width}\"\r\n>\r\n  <div class=\"h-full\">\r\n    <slot />\r\n  </div>\r\n  \r\n  <div\r\n    class=\"absolute {side === 'left' ? 'right-0' : 'left-0'} top-0 w-1 h-full cursor-col-resize bg-base-300 hover:bg-primary\"\r\n    on:mousedown={startResize}\r\n  />\r\n</div>\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/lib/components/TabManager.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741877392997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741877392997,
+            "name": "Commit-0",
+            "content": "<script lang=\"ts\">\r\n  import { writable } from 'svelte/store';\r\n\r\n  interface Tab {\r\n    id: string;\r\n    title: string;\r\n    component: any;\r\n  }\r\n\r\n  export let tabs = writable<Tab[]>([]);\r\n  export let activeTab = writable<string | null>(null);\r\n\r\n  function switchTab(tabId: string) {\r\n    activeTab.set(tabId);\r\n  }\r\n\r\n  function closeTab(tabId: string) {\r\n    tabs.update(tabs => tabs.filter(tab => tab.id !== tabId));\r\n    if ($activeTab === tabId) {\r\n      activeTab.set($tabs[0]?.id || null);\r\n    }\r\n  }\r\n</script>\r\n\r\n<div class=\"tabs tabs-lifted\">\r\n  {#each $tabs as tab}\r\n    <div \r\n      class=\"tab {$activeTab === tab.id ? 'tab-active' : ''}\"\r\n      on:click={() => switchTab(tab.id)}\r\n    >\r\n      {tab.title}\r\n      <button \r\n        class=\"btn btn-ghost btn-xs ml-2\"\r\n        on:click|stopPropagation={() => closeTab(tab.id)}\r\n      >\r\n        ×\r\n      </button>\r\n    </div>\r\n  {/each}\r\n</div>\r\n\r\n<div class=\"tab-content p-4\">\r\n  {#if $activeTab && $tabs.find(t => t.id === $activeTab)}\r\n    <svelte:component this={$tabs.find(t => t.id === $activeTab)?.component} />\r\n  {/if}\r\n</div>\r\n"
+        }
+    ]
+}

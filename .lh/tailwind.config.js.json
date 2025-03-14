@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1741849194432,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741871595620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,23 @@\n       require('daisyui')  // DaisyUI 组件库 [1](@ref)(https://blog.csdn.net/gitblog_00658/article/details/141208313)\r\n     ],\r\n     daisyui: {\r\n       themes: [\"light\", \"dark\"],  // 启用多主题模式\r\n+      base: true,                // 启用基础样式\r\n+      prefix: 'dm-',             // 组件类名前缀（防止冲突）\r\n+      darkTheme: 'dark',         // 默认暗色主题名称\r\n\\ No newline at end of file\n+      logos: true                // 启用组件库自带图标\r\n     }\r\n   }\r\n-  \n+module.exports = {\r\n+    content: ['./src/**/*.{html,js,svelte,ts}'],\r\n+    theme: {\r\n+      extend: {},\r\n+    },\r\n+    plugins: [\r\n+      require('@tailwindcss/typography'),  // 排版插件\r\n+      require('daisyui')  // DaisyUI 组件库 [1](@ref)(https://blog.csdn.net/gitblog_00658/article/details/141208313)\r\n+    ],\r\n+    daisyui: {\r\n+      themes: [\"light\", \"dark\"],  // 启用多主题模式\r\n+    }\r\n+  }\r\n"
+                },
+                {
+                    "date": 1741871668453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,5 @@\n     ],\r\n     daisyui: {\r\n       themes: [\"light\", \"dark\"],  // 启用多主题模式\r\n     }\r\n-  }\n\\ No newline at end of file\n+  }\r\n"
+                },
+                {
+                    "date": 1741871875931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +1,17 @@\n module.exports = {\r\n     content: ['./src/**/*.{html,js,svelte,ts}'],\r\n     theme: {\r\n-      extend: {},\r\n+        extend: {},\r\n     },\r\n     plugins: [\r\n-      require('@tailwindcss/typography'),  // 排版插件\r\n-      require('daisyui')  // DaisyUI 组件库 [1](@ref)(https://blog.csdn.net/gitblog_00658/article/details/141208313)\r\n+        require('@tailwindcss/typography'),\r\n+        require('daisyui')\r\n     ],\r\n     daisyui: {\r\n-      themes: [\"light\", \"dark\"],  // 启用多主题模式\r\n-      base: true,                // 启用基础样式\r\n-      prefix: 'dm-',             // 组件类名前缀（防止冲突）\r\n-      darkTheme: 'dark',         // 默认暗色主题名称\r\n-      logos: true                // 启用组件库自带图标\r\n+        themes: [\"light\", \"dark\"], // 使用DaisyUI原生主题切换\r\n+        base: true,               // 启用基础样式\r\n+        prefix: 'dm-',            // 组件类名前缀（防止冲突）\r\n+        darkTheme: 'dark',        // 默认暗色主题名称\r\n+        logos: true               // 启用组件库自带图标\r\n     }\r\n-  }\r\n-module.exports = {\r\n-    content: ['./src/**/*.{html,js,svelte,ts}'],\r\n-    theme: {\r\n-      extend: {},\r\n-    },\r\n-    plugins: [\r\n-      require('@tailwindcss/typography'),  // 排版插件\r\n-      require('daisyui')  // DaisyUI 组件库 [1](@ref)(https://blog.csdn.net/gitblog_00658/article/details/141208313)\r\n-    ],\r\n-    daisyui: {\r\n-      themes: [\"light\", \"dark\"],  // 启用多主题模式\r\n-    }\r\n-  }\r\n+}\r\n"
+                },
+                {
+                    "date": 1741877762836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,10 @@\n-module.exports = {\r\n+export default {\r\n     content: ['./src/**/*.{html,js,svelte,ts}'],\r\n     theme: {\r\n-        extend: {},\r\n+      extend: {},\r\n     },\r\n-    plugins: [\r\n-        require('@tailwindcss/typography'),\r\n-        require('daisyui')\r\n-    ],\r\n+    plugins: [require(\"daisyui\")],\r\n     daisyui: {\r\n-        themes: [\"light\", \"dark\"], // 使用DaisyUI原生主题切换\r\n-        base: true,               // 启用基础样式\r\n-        prefix: 'dm-',            // 组件类名前缀（防止冲突）\r\n-        darkTheme: 'dark',        // 默认暗色主题名称\r\n-        logos: true               // 启用组件库自带图标\r\n+      themes: [\"light\", \"dark\"],\r\n     }\r\n-}\r\n+}\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1741849194432,

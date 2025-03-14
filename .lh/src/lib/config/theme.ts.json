@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/lib/config/theme.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741877384864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741877384864,
+            "name": "Commit-0",
+            "content": "export const theme = {\r\n  colors: {\r\n    primary: 'hsl(var(--p))',\r\n    secondary: 'hsl(var(--s))',\r\n    accent: 'hsl(var(--a))',\r\n    neutral: 'hsl(var(--n))',\r\n    'base-100': 'hsl(var(--b1))',\r\n    'base-200': 'hsl(var(--b2))',\r\n    'base-300': 'hsl(var(--b3))',\r\n  }\r\n};\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/routes/+error.svelte",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1741877758473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1741877758473,
+            "name": "Commit-0",
+            "content": "<script lang=\"ts\">\r\n  import { page } from '$app/stores';\r\n</script>\r\n\r\n<div class=\"flex items-center justify-center h-full\">\r\n  <div class=\"text-center\">\r\n    <h1 class=\"text-4xl font-bold\">{$page.status}</h1>\r\n    <p class=\"text-xl\">{$page.error?.message}</p>\r\n  </div>\r\n</div>\r\n"
+        }
+    ]
+}

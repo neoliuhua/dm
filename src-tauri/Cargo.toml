@@ -22,4 +22,13 @@ tauri = { version = "2", features = [] }
 tauri-plugin-opener = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+tauri-plugin-os = "2.2.1"
+
+[package.metadata.bundle]
+identifier = "com.example.app"
+icon = ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
+
+# 使用 WiX 4.x 进行 Windows 安装程序打包
+[package.metadata.bundle.windows]
+wix = { version = "4.0.0", path = "C:\\Program Files\\WiX Toolset v4.0" }
 

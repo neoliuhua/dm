@@ -1,0 +1,10 @@
+[env]
+# 设置 WiX 工具集的路径
+WIX_PATH = "C:\\Program Files\\WiX Toolset v4.0"
+# 告诉 Tauri 使用 WiX 4.x
+TAURI_BUNDLER_WIX_VERSION = "4.0.0"
+# 禁用自动下载 WiX 工具集
+TAURI_BUNDLER_WIX_DOWNLOAD = "false"
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"] 

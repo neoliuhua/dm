@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1741838707861,
@@ -68,6 +68,22 @@
                 {
                     "date": 1741850959431,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   },\r\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\r\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\r\n   build: {\r\n-    outDir: '../build', // Output files to the `dist` folde\r\n+    //outDir: '../build', // Output files to the `dist` folde\r\n     // Tauri uses Chromium on Windows and WebKit on macOS and Linux\r\n     target:\r\n       process.env.TAURI_ENV_PLATFORM == 'windows'\r\n         ? 'chrome105'\r\n"
+                },
+                {
+                    "date": 1741875938428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,19 @@\n   plugins: [sveltekit(), tailwindcss()],\r\n   // prevent vite from obscuring rust errors\r\n   clearScreen: false,\r\n   server: {\r\n+    middleware: {\r\n+      // 映射 static 目录到开发服务器\r\n+      static: [\r\n+        {\r\n+          directory: path.resolve(__dirname, './static'),\r\n+          url: '/static',\r\n+          serveFiles: true,\r\n+          resolveExtensions: ['.png', '.jpg', '.jpeg', '.gif']\r\n+        }\r\n+      ]\r\n+    },\r\n     port: 3000,\r\n     // Tauri expects a fixed port, fail if that port is not available\r\n     strictPort: true,\r\n     // if the host Tauri is expecting is set, use it\r\n@@ -27,8 +38,14 @@\n       // tell vite to ignore watching `src-tauri`\r\n       ignored: ['**/src-tauri/**',\"**/node_modules/**\"],\r\n     },\r\n   },\r\n+  resolve: {\r\n+    alias: {\r\n+      // 可选：创建别名方便导入\r\n+      '~static': path.resolve(__dirname, './static')\r\n+    }\r\n+  },\r\n   // Env variables starting with the item of `envPrefix` will be exposed in tauri's source code through `import.meta.env`.\r\n   envPrefix: ['VITE_', 'TAURI_ENV_*'],\r\n   build: {\r\n     //outDir: '../build', // Output files to the `dist` folde\r\n@@ -41,5 +58,5 @@\n     minify: !process.env.TAURI_ENV_DEBUG ? 'esbuild' : false,\r\n     // produce sourcemaps for debug builds\r\n     sourcemap: !!process.env.TAURI_ENV_DEBUG,\r\n   },\r\n-});\n\\ No newline at end of file\n+});\r\n"
+                },
+                {
+                    "date": 1741875956398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import path from 'path';\r\n import tailwindcss from \"@tailwindcss/vite\";\r\n import { sveltekit } from \"@sveltejs/kit/vite\";\r\n import { defineConfig } from \"vite\";\r\n \r\n@@ -9,18 +10,10 @@\n   plugins: [sveltekit(), tailwindcss()],\r\n   // prevent vite from obscuring rust errors\r\n   clearScreen: false,\r\n   server: {\r\n-    middleware: {\r\n-      // 映射 static 目录到开发服务器\r\n-      static: [\r\n-        {\r\n-          directory: path.resolve(__dirname, './static'),\r\n-          url: '/static',\r\n-          serveFiles: true,\r\n-          resolveExtensions: ['.png', '.jpg', '.jpeg', '.gif']\r\n-        }\r\n-      ]\r\n+    fs: {\r\n+      allow: ['./static']\r\n     },\r\n     port: 3000,\r\n     // Tauri expects a fixed port, fail if that port is not available\r\n     strictPort: true,\r\n"
+                },
+                {
+                    "date": 1741876602502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   // prevent vite from obscuring rust errors\r\n   clearScreen: false,\r\n   server: {\r\n     fs: {\r\n-      allow: ['./static']\r\n+      allow: ['/']\r\n     },\r\n     port: 3000,\r\n     // Tauri expects a fixed port, fail if that port is not available\r\n     strictPort: true,\r\n"
+                },
+                {
+                    "date": 1741876905111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   // prevent vite from obscuring rust errors\r\n   clearScreen: false,\r\n   server: {\r\n     fs: {\r\n-      allow: ['/']\r\n+      allow: ['..']\r\n     },\r\n     port: 3000,\r\n     // Tauri expects a fixed port, fail if that port is not available\r\n     strictPort: true,\r\n"
                 }
             ],
             "date": 1741838707861,

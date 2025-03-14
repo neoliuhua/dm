@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1741832645361,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741877402302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,14 +8,18 @@\n     \"devUrl\": \"http://localhost:1420\",\r\n     \"beforeBuildCommand\": \"bun run build\",\r\n     \"frontendDist\": \"../build\"\r\n   },\r\n-  \"app\": {\r\n+  \"tauri\": {\r\n     \"windows\": [\r\n       {\r\n-        \"title\": \"tauri_bun_svkit\",\r\n-        \"width\": 800,\r\n-        \"height\": 600\r\n+        \"title\": \"Data Modeling Tool\",\r\n+        \"width\": 1200,\r\n+        \"height\": 800,\r\n+        \"minWidth\": 800,\r\n+        \"minHeight\": 600,\r\n+        \"resizable\": true,\r\n+        \"decorations\": false\r\n       }\r\n     ],\r\n     \"security\": {\r\n       \"csp\": null\r\n"
                 }
             ],
             "date": 1741832645361,
